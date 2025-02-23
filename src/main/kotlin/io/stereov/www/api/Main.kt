@@ -1,4 +1,4 @@
-package io.stereov.www
+package io.stereov.www.api
 
 fun main() {
     println("Hello World!")
