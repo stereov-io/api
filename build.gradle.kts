@@ -40,7 +40,8 @@ val testContainersVersion = "1.19.0"
 val bucket4jVersion = "8.14.0"
 
 dependencies {
-    implementation("io.stereov.web:web-spring-boot-autoconfigure:0.1.0")
+    implementation("io.stereov.web:web-spring-boot-autoconfigure:0.1.2")
+    implementation("org.springframework.boot:spring-boot-starter:$springBootVersion")
 
     // Development
     developmentOnly("org.springframework.boot:spring-boot-devtools:$springBootVersion")
