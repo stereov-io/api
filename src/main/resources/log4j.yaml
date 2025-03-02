@@ -35,11 +35,6 @@ Configuration:
         - ref: Console
         - ref: RollingFile
   Loggers:
-    Logger:
-      - name: com.systema.eia.sdt.analytics
-        additivity: false
-        AppenderRef:
-          ref: Async
     Root:
       AppenderRef:
         ref: Async
