@@ -40,7 +40,10 @@ val testContainersVersion = "1.19.0"
 val bucket4jVersion = "8.14.0"
 
 dependencies {
-    implementation("io.stereov.web:web-start:0.0.6")
+    implementation("io.stereov.web:web-spring-boot-autoconfigure:0.1.0")
+
+    // Development
+    developmentOnly("org.springframework.boot:spring-boot-devtools:$springBootVersion")
 
     // Tests
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
@@ -53,6 +56,12 @@ dependencies {
     testImplementation("org.testcontainers:testcontainers:$testContainersVersion")
     testImplementation("org.testcontainers:junit-jupiter:$testContainersVersion")
     testImplementation("org.testcontainers:mongodb:$testContainersVersion")
+}
+
+configurations.all {
+    exclude(group = "commons-logging", module = "commons-logging")
+    exclude(group = "org.springframework.boot", module = "spring-boot-starter-logging")
+    exclude(group = "org.springframework.boot", module = "spring-boot-starter-tomcat")
 }
 
 tasks.withType<KotlinCompile>().configureEach {
