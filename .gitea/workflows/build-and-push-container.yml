@@ -30,7 +30,7 @@ jobs:
       - name: Build Docker Image
         run: |
           echo "Tag name from github.ref_name: ${IMAGE_TAG#v}"
-          docker build -t "$GITEA_HOST/$IMAGE_NAME:${IMAGE_TAG#v}" .
+          docker build --build-arg GITEA_TOKEN="$GITEA_TOKEN" -t "$GITEA_HOST/$IMAGE_NAME:${IMAGE_TAG#v}" .
           docker tag "$GITEA_HOST/$IMAGE_NAME:${IMAGE_TAG#v}" "$GITEA_HOST/$IMAGE_NAME:latest"
 
       - name: Push Docker Image to Gitea Registry

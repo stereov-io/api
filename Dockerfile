@@ -1,5 +1,8 @@
 FROM gradle:8.5-jdk21 AS build
 
+ARG GITEA_TOKEN
+ENV GITEA_TOKEN=$GITEA_TOKEN
+
 WORKDIR /app
 
 COPY gradle gradle
