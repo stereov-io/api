@@ -12,7 +12,8 @@ jobs:
   build_and_test:
     name: Build and Test
     runs-on: ubuntu-latest
-
+    env:
+      GITEA_TOKEN: ${{ secrets.TOKEN }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3

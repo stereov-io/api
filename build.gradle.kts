@@ -12,7 +12,7 @@ plugins {
 group = "io.stereov.www"
 version = project.property("version") as String
 
-val accessToken = properties["maven.accessToken"] as String?
+val accessToken: String? = properties["maven.accessToken"] as String? ?: System.getenv("GITEA_TOKEN")
 
 repositories {
     mavenCentral()
