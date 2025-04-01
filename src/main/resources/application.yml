@@ -24,9 +24,13 @@ logging:
   level:
     io.stereov: ${LOG_LEVEL:DEBUG}
 
-webstarter:
+baseline:
+  app:
+    base-url: http://localhost:8000
+    name: Test
+    secure: false
   mail:
-    enable-email-verification: ${ENABLE_EMAIL_VERIFICATION:true}
+    enable: ${ENABLE_EMAIL_VERIFICATION:true}
     host: ${MAIL_HOST}
     port: ${MAIL_PORT}
     email: ${MAIL_EMAIL}
@@ -38,22 +42,10 @@ webstarter:
     debug: ${MAIL_DEBUG:false}
     verification-expiration: ${MAIL_VERIFICATION_EXPIRATION:900}
     verification-send-cooldown: ${MAIL_VERIFICATION_SEND_COOLDOWN:60}
-  encryption:
-    secret-key: ${SECRET_KEY}
-  jwt:
-    secret-key: ${JWT_SECRET_KEY}
-    expires-in: ${JWT_EXPIRATION:900}
-  backend:
-    base-url: ${BACKEND_BASE_URL}
-    secure: ${SECURE:false}
-  rate-limit:
-    ip-rate-limit-minute: ${IP_RATE_LIMIT_MINUTE:200}
-    account-rate-limit-minute: ${ACCOUNT_RATE_LIMIT_MINUTE:100}
-  frontend:
+  security:
+    encryption:
+      secret-key: ${SECRET_KEY}
+    jwt:
+      secret-key: ${JWT_SECRET_KEY}
+  ui:
     base-url: ${FRONTEND_BASE_URL}
-    email-verification-path: ${EMAIL_VERIFICATION_PATH}
-  auth:
-    public-paths:
-      - "/user/register"
-      - "/user/login"
-      - "/user/refresh"

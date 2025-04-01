@@ -16,20 +16,6 @@ val accessToken: String? = properties["maven.accessToken"] as String? ?: System.
 
 repositories {
     mavenCentral()
-
-    maven {
-        name = "Gitea"
-        url = uri("https://git.stereov.io/api/packages/baseline/maven")
-
-        credentials(HttpHeaderCredentials::class.java) {
-            name = "Authorization"
-            value = "token $accessToken"
-        }
-
-        authentication {
-            create<HttpHeaderAuthentication>("header")
-        }
-    }
 }
 
 val kotlinVersion = "2.0.21"
@@ -40,11 +26,7 @@ val testContainersVersion = "1.19.0"
 val bucket4jVersion = "8.14.0"
 
 dependencies {
-    implementation("io.stereov.web:web-spring-boot-autoconfigure:0.1.3")
-    implementation("org.springframework.boot:spring-boot-starter:$springBootVersion")
-
-    // Development
-    developmentOnly("org.springframework.boot:spring-boot-devtools:$springBootVersion")
+    implementation("io.stereov.web:baseline:1.0.4")
 
     // Tests
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
